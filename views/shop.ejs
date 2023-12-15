@@ -1,0 +1,11 @@
+<%- include('includes/header.ejs') %>
+    <main>
+      <h2>Product List</h2>
+      <% if(products.length > 0) { %> <% for(let item of products) { %>
+      <p><%= item.title %></p>
+      <% } %> <% } else { %>
+      <p>Not Product here</p>
+      <% } %>
+    </main>
+  </body>
+</html>
