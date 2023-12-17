@@ -11,10 +11,11 @@ exports.postAddProduct = (req, res) => {
   res.redirect("/");
 };
 
-exports.getAddProductList = (req, res) => {
-  const products = Product.fetchAll()
-  res.render("shop", {
-    pageTitle: "Shop Page",
-    products: products,
-  });
-};
+exports.getAddProductList = (req, res, next) => {
+  Product.fetchAll((products) => {
+    res.render('shop', {
+      pageTitle: 'Shop Page',
+      products: products,
+    })
+  })
+}
